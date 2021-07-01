@@ -1,0 +1,2 @@
+rootProject.name = "WxApi"
+include ':app'

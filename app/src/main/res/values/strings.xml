@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">WxApi</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="detail">Detail</string>
+    <string name="home">Home</string>
+    <string name="background">weather based image</string>
+    <string name="empty_state_message">no data available</string>
+    <string name="search_fab">search fab</string>
+    <string name="connection_error_message">error connecting to server</string>
+    <string name="missing_api_key_message">api key missing</string>
+    <string name="city_not_found_toast_message">unable to find city</string>
+</resources>

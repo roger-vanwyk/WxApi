@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeatherFragment">
+<!--        THIS LAYOUT DISPLAYS CURRENT AND FORECAST WEATHER CONDITIONS-->
+
+        <!--        Background image based on current weather conditions -->
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/forest_sunny"
+            app:layout_constraintBottom_toTopOf="@+id/forecastLinear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/background" />
+
+        <!--                        Weather temperature text -->
+        <TextView
+            android:id="@+id/detailDegreeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="46sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background"
+            app:layout_constraintVertical_bias="0.134"
+            tools:text="36 °C" />
+
+    <!--                        Weather location -->
+    <TextView
+        android:id="@+id/detailCityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Centurion" />
+
+<!--    Temperature text-->
+
+    <!--        Forecast LinearLayout with vertical orientation-->
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/detailDegreeText"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="@+id/detailDegreeText"
+        app:layout_constraintTop_toBottomOf="@+id/detailDegreeText"
+        tools:text="Sunny" />
+
+    <LinearLayout
+            android:id="@+id/forecastLinear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:background="@color/sunny_forest"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/background">
+
+            <LinearLayout
+                android:id="@+id/temperatureRangeLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal">
+
+<!--                Temperature minimum text value-->
+                <TextView
+                    android:id="@+id/detailMinimumDegreeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18sp"
+                    tools:layout_marginRight="10dp"
+                    tools:text="12°" />
+
+                <!--                Temperature maximum text value-->
+                <TextView
+                    android:id="@+id/detailMaximumDegreeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18sp"
+                    tools:text="39°" />
+            </LinearLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/white"/>
+
+<!--                Weather forecast view container-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/forecastList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout="@layout/forecast_list_item"
+                    android:visibility="gone"/>
+
+<!--                Shows while data is loading-->
+                <ProgressBar
+                    android:id="@+id/loadingSpinner"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+<!--                Shows when no data is available-->
+                <TextView
+                    android:id="@+id/emptyStateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    tools:text="@string/empty_state_message" />
+        </LinearLayout>
+
+<!--                Navigate to weather DetailFragment-->
+                <Button
+                    android:id="@+id/button_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
